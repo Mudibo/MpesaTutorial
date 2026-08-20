@@ -15,6 +15,14 @@ async function startServer() {
                 `Server running on ${config.port}`
             );
         });
+        process.on("SIGINT", async () => {
+            console.log("Shutting down...");
+            process.exit(0);
+        });
+        process.on("SIGTERM", async () => {
+            console.log("Shutting down...");
+            process.exit(0);
+        });
 
     } catch (error) {
 

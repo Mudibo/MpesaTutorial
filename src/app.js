@@ -6,6 +6,7 @@ import morgan from "morgan";
 import healthRoutes from "./routes/health.routes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import paymentRoutes from "./routes/payment.routes.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 
@@ -29,5 +30,6 @@ app.use(errorHandler);
 app.use(morgan("dev"));
 
 app.use("/api/v1/payments", paymentRoutes);
+app.use(errorHandler);
 
 export default app;
