@@ -1,0 +1,1 @@
+alter table payments add column idempotency_key text unique;

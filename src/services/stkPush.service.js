@@ -7,7 +7,7 @@ import { formatPhoneNumber } from "../utils/phoneFormatter.js";
 import { generateTimestamp } from "../utils/timestamp.js";
 import { generatePassword } from "../utils/passwordGenerator.js";
 import { generatePaymentReference } from "../utils/paymentReference.js";
-import { PAYMENT_STATUS } from "../constants/paymentStatus.js";
+import { PAYMENT_STATUS } from "../constants/payment-status.js";
 /**
  * Initiates an STK Push request.
  *

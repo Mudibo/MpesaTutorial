@@ -5,28 +5,13 @@ import compression from "compression";
 import morgan from "morgan";
 import healthRoutes from "./routes/health.routes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
+import paymentRoutes from "./routes/payment.routes.js";
 
 const app = express();
 
 app.use("/health", healthRoutes);
 
-/*
-|--------------------------------------------------------------------------
-| Security Middleware
-|--------------------------------------------------------------------------
-*/
-
 app.use(helmet());
-
-/*
-|--------------------------------------------------------------------------
-| CORS
-|--------------------------------------------------------------------------
-|
-| During development we'll allow localhost.
-| In production we'll restrict this to trusted origins.
-|
-*/
 
 app.use(
     cors({
@@ -35,32 +20,14 @@ app.use(
     })
 );
 
-/*
-|--------------------------------------------------------------------------
-| Request Parsing
-|--------------------------------------------------------------------------
-*/
-
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-/*
-|--------------------------------------------------------------------------
-| Compression
-|--------------------------------------------------------------------------
-*/
-
-app.use(compression());
-
-/*
-|--------------------------------------------------------------------------
-| Logging
-|--------------------------------------------------------------------------
-*/
-
 app.use(errorHandler);
 
 app.use(morgan("dev"));
+
+app.use("/api/v1/payments", paymentRoutes);
 
 export default app;
