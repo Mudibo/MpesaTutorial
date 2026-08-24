@@ -58,6 +58,24 @@ class PaymentRepository{
         }
         return data;
     }
+    async updateFromCallback(checkoutRequestId, updateData) {
+        const {
+            data,
+            error,
+        } = await supabase
+            .from("payments")
+            .update(updateData)
+            .eq(
+                "checkout_request_id",
+                checkoutRequestId
+            )
+            .select()
+            .single();
+        if (error) {
+            throw error;
+        }
+        return data;
+    }
 }
 
 export default new PaymentRepository();

@@ -14,4 +14,9 @@ router.post("/stk-push",
     paymentController.initiateSTKPush
 );
 
+router.post(
+    "/callback",
+    paymentController.handleCallback
+);
+
 export default router;

@@ -4,9 +4,9 @@ import cors from "cors";
 import compression from "compression";
 import morgan from "morgan";
 import healthRoutes from "./routes/health.routes.js";
-import { errorHandler } from "./middlewares/errorHandler.js";
+import { errorHandler } from "./middlewares/errorhandler.js";
 import paymentRoutes from "./routes/payment.routes.js";
-import { errorHandler } from "./middleware/errorHandler.js";
+
 
 const app = express();
 
